@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: mcq-backend
+    env: docker
+    dockerfilePath: docker/Dockerfile
+    region: oregon
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: ENV
+        value: production
+      - key: DEBUG
+        value: "false"
