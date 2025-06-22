@@ -2,7 +2,7 @@ uvicorn
 fastapi
 pydantic
 pydantic-settings
-python-dotnev
+python-dotenv
 pytest==7.4.3
 pytest-asyncio==0.21.1
 pytest-cov==4.1.0
