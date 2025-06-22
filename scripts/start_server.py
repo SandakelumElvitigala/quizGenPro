@@ -23,10 +23,12 @@ def main():
         print("WARNING: GROQ_API_KEY is not set. Please set it in your environment or .env file")
         sys.exit(1)
     
+    port = int(os.environ.get("PORT", settings.PORT))
+    
     uvicorn.run(
         "app.main:app",
         host=settings.HOST,
-        port=settings.PORT,
+        port=port,
         reload=settings.DEBUG,
         log_level=settings.LOG_LEVEL.lower(),
         access_log=True
