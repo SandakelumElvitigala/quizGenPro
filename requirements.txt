@@ -1,3 +1,4 @@
+groq
 uvicorn
 fastapi
 pydantic
