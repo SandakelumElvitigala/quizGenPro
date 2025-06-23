@@ -32,9 +32,7 @@ async def generate_mcqs_from_topic(request: TopicRequest):
 @router.post("/pdf", response_model=MCQResponse)
 async def generate_mcqs_from_pdf(
     file: UploadFile = File(...),
-    num_questions: int = Form(5),
-    difficulty: str = Form("medium"),
-    question_type: str = Form("general")
+    request: PDFRequest = Depends()  # Use PDFRequest model
 ):
     """Generate MCQs from uploaded PDF file"""
     try:
@@ -48,9 +46,9 @@ async def generate_mcqs_from_pdf(
         # Generate MCQs
         response = await mcq_service.generate_mcqs_from_pdf(
             pdf_content=text_content,
-            num_questions=num_questions,
-            difficulty=difficulty,
-            question_type=question_type
+            num_questions=request.num_questions,
+            difficulty=request.difficulty,
+            question_type=request.question_type
         )
         return response
         
