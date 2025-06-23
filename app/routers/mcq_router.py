@@ -51,7 +51,8 @@ async def generate_mcqs_from_pdf(
             difficulty=request.difficulty,
             question_type=request.question_type
         )
-        logger.info(request.num_questions)
+        logger.info(request.num_questions,"//",request.difficulty)
+        
         return response
         
     except PDFProcessingError as e:
