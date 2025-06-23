@@ -20,6 +20,7 @@ async def generate_mcqs_from_topic(request: TopicRequest):
             difficulty=request.difficulty,
             question_type=request.question_type
         )
+        logger.info(response)
         return response
         
     except GroqAPIError as e:
@@ -50,6 +51,7 @@ async def generate_mcqs_from_pdf(
             difficulty=request.difficulty,
             question_type=request.question_type
         )
+        logger.info(request.num_questions)
         return response
         
     except PDFProcessingError as e:
